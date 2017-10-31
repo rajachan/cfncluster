@@ -16,7 +16,10 @@ install:
     fi
   - pip install -e .
   - cd -
+  - pip install pylint
 
 sudo: false
 
-script: sh tests/test.sh
+script:
+  - sh tests/test.sh
+  - pylint -r y -j 2  -f colorized cli/cfncluster/
